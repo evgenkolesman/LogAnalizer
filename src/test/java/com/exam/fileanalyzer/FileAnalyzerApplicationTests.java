@@ -1,5 +1,6 @@
 package com.exam.fileanalyzer;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.ResourceUtils;
@@ -11,11 +12,8 @@ import java.util.HashMap;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @SpringBootTest
+@Slf4j
 class FileAnalyzerApplicationTests {
-
-    @Test
-    void contextLoads() {
-    }
 
     @Test
     void testFileParse() throws IOException {
@@ -31,11 +29,7 @@ class FileAnalyzerApplicationTests {
         stringIntegerHashMap.put("logs_2018-02-27-access.log", 2);
         stringIntegerHashMap.put("logs_2018-02-28-access.log", 0);
 
+        log.info(stringIntegerHashMap.toString());
         assertThat(result).isEqualTo(stringIntegerHashMap);
-
-        for (var fileName : result.keySet()) {
-            System.out.println("fileName: " + fileName + " count: " + result.get(fileName));
-        }
-
     }
 }

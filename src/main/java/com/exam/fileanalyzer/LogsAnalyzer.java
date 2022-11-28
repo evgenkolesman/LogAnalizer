@@ -40,7 +40,6 @@ public class LogsAnalyzer {
                                                       LocalDate startDate,
                                                       Integer numberOfDays)
             throws IOException {
-        // Creating a regular expression for the records
         final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
         ZipFile extractedZipFile = new ZipFile(zipFile.getAbsolutePath());
         return extractedZipFile.stream()
